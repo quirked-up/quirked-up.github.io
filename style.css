@@ -1,0 +1,132 @@
+:root {
+	--bg: #fff;
+	--transparent-bg: #fffe;
+	--light-bg: #ddde;
+	--fg: black;
+	--tint: #0d8ba0;
+	--tint2: #024;
+	--highlight: #008288;
+}
+
+.dark {
+	--bg: #111;
+	--lightbg: #222;
+	--fg: #eee;
+	--tint: #eeffe0;
+	--tint2: #cdf;
+	--highlight: #afa;
+}
+
+@font-face { font-family: "Inter"; src: url("https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+html {
+	background-color: var(--bg);
+	color: var(--fg);
+	font-family: "normcore", sans-serif;
+	padding: 1em;
+	font-family: "Inter", sans-serif;
+	letter-spacing: -0.045em;
+	
+	/* background-image: url("./notebook.png"); */
+}
+
+/* headers */
+h1, h2, h3 { 
+	color: var(--tint);
+	font-family: Lato;
+	letter-spacing: 0;
+}
+h1, h2 {
+	text-decoration: underline;
+	padding-left: 1em;
+	font-weight: normal;
+	/*font-style: italic;*/
+}
+header h2 { text-decoration: none; }
+h3 { 
+	text-decoration: underline;
+	padding-left: 0.8em;
+}
+header, nav {
+	text-align: right;
+}
+
+/* links, etc */
+nav, a {
+	color: var(--highlight);
+}
+a article {
+	color: var(--fg);
+	text-decoration: none 0px;
+}a:link article {
+	color: var(--fg);
+	text-decoration: none;
+}
+em {
+	font-family: Luminari;
+	font-size: 1.1em;
+}
+
+
+/* skytower */
+/*body {
+	background-image: url(skytower.png);
+	background-position: center 10em;
+	background-repeat: no-repeat;
+	background-size: auto 80vh;
+}
+#projects {
+	background-image: url(skytowerpole.png);
+	background-position: top;
+	background-repeat: repeat-y;
+	background-size: auto 80vh;
+}
+#about {
+	text-shadow: 1px 0 0 var(--bg), 0 1px 0 var(--bg), -1px 0 0 var(--bg), 0 -1px 0 var(--bg), 0 0 2px var(--bg); /* for small layouts, make it so u can see the black on grey */
+	
+}*/	
+
+/* projects */
+#projects > a { 
+	text-decoration: none;
+}
+/*#projects > article:nth-child(2n) {
+	margin-left: auto;
+} */
+article {
+	/*width: 40%;
+	min-width: 22em;*/
+	max-width: 30em;
+	border: solid 2px var(--tint2);
+	border-radius: 1em;
+	padding: min(2em, 10%);
+	transition: transform 0.3s cubic-bezier(.48,-0.25,.45,1.37), background-color 0.3s;
+	background: var(--bg);
+	margin: 0 auto 2em auto;
+}
+article:hover {
+	background-color: var(--bg);
+	transform: scale(105%);
+}
+article img {
+	width: 100%;
+	max-width: 50vh;
+	margin-left: max(50% - 25vh, 0%);
+	border-radius: 1em;
+	border: solid 2px grey;
+}
+
+@media (min-width: 450px) {
+	article { 
+		columns: 2;
+	}
+	article img {
+		width: 10em;
+	}
+}
+
+#about img {
+	width: min(max(50%, 30vh), 70vw);
+	border-radius: 5%;
+	margin-left: 1em;
+}
