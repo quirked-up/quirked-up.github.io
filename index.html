@@ -20,6 +20,7 @@
 	<section id=about>
 		<h1>Hi, I'm Lilith</h1>
 		<img src=portrait.jpg>
+		
 		<p>I'm a software developer, primarily interested in Front End and Full Stack development</p>
 		
 		<p>
@@ -27,7 +28,7 @@
 		</p>
 		
 		<p>
-		I've been programming since I was 10, and it has formed an integral part of who I am.
+		I'm passionate about programming; I've been doing it since I was 11, and it has informed much of who I am.
 		<br>I love making things come to life and crafting interactive experiences through code.
 		</p>
 		
@@ -177,5 +178,14 @@
 	
 	<section id=more>
 	</section>
+	
+	<script>
+	window.addEventListener('scroll', ()=>{
+	  for (article of document.getElementsByTagName("article")) {
+		if (article.getBoundingClientRect().top < window.innerHeight)
+		  article.classList.add("onscreen")
+	  }
+	})
+	</script>
   </body>
 </html>

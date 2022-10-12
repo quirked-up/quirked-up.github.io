@@ -29,6 +29,10 @@ html {
 	
 	/* background-image: url("./notebook.png"); */
 }
+body {
+	max-width: 1300px;
+	margin: auto;
+}
 
 /* headers */
 h1, h2, h3 { 
@@ -68,31 +72,11 @@ em {
 }
 
 
-/* skytower */
-/*body {
-	background-image: url(skytower.png);
-	background-position: center 10em;
-	background-repeat: no-repeat;
-	background-size: auto 80vh;
-}
-#projects {
-	background-image: url(skytowerpole.png);
-	background-position: top;
-	background-repeat: repeat-y;
-	background-size: auto 80vh;
-}
-#about {
-	text-shadow: 1px 0 0 var(--bg), 0 1px 0 var(--bg), -1px 0 0 var(--bg), 0 -1px 0 var(--bg), 0 0 2px var(--bg); /* for small layouts, make it so u can see the black on grey */
-	
-}*/	
-
 /* projects */
 #projects > a { 
 	text-decoration: none;
 }
-/*#projects > article:nth-child(2n) {
-	margin-left: auto;
-} */
+
 article {
 	/*width: 40%;
 	min-width: 22em;*/
@@ -126,7 +110,63 @@ article img {
 }
 
 #about img {
-	width: min(max(50%, 30vh), 70vw);
+	width: min(70%, 70vw);
 	border-radius: 5%;
 	margin-left: 1em;
 }
+@media (min-width: 500px) {
+	#about img {
+		width: 300px
+	}
+}
+
+/* skytower */
+@media (min-width: 1000px) {
+	body {
+		background-image: url(skytower.png);
+		background-position: center 8em;
+		background-repeat: no-repeat;
+		background-size: auto 800px;
+	}
+	#projects {
+		background-image: url(skytowerpole.png);
+		background-position: top;
+		background-repeat: repeat-y;
+		background-size: auto 800px;
+	}
+	#about {
+		text-shadow: 1px 0 0 var(--bg), 0 1px 0 var(--bg), -1px 0 0 var(--bg), 0 -1px 0 var(--bg), 0 0 2px var(--bg); /* for small layouts, make it so u can see the black on grey */	
+		min-height: 620px;
+	}
+	#about img {
+		float: right;
+		margin-left: 30%;
+	}
+	
+	#projects {
+	}
+	article {
+		width: 35vw;
+	}
+	
+	article:nth-child(2n+1) {
+		margin-left: 0;
+	}
+	article:nth-child(2n) {
+		margin-right: 0;
+	}
+	
+	/*
+	article {
+		transition: transform 2s, clip-path 2s;
+	}
+	article:nth-child(2n+1) {
+		transform: translateX(610px);
+		clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%);
+	}
+	
+	article.onscreen {
+		transform: translateX(0px);
+		clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+	}*/
+}	
