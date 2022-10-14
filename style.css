@@ -23,10 +23,10 @@ html {
 	background-color: var(--bg);
 	color: var(--fg);
 	font-family: "normcore", sans-serif;
-	padding: 1em;
+	padding: 1rem;
 	font-family: "Inter", sans-serif;
-	letter-spacing: -0.045em;
-	
+	letter-spacing: -0.045rem;
+	--scrollbar-width: 17px;
 	/* background-image: url("./notebook.png"); */
 }
 body {
@@ -42,14 +42,14 @@ h1, h2, h3 {
 }
 h1, h2 {
 	text-decoration: underline;
-	padding-left: 1em;
+	padding-left: 2rem;
 	font-weight: normal;
 	/*font-style: italic;*/
 }
 header h2 { text-decoration: none; }
 h3 { 
 	text-decoration: underline;
-	padding-left: 0.8em;
+	padding-left: 0.8rem;
 }
 header, nav {
 	text-align: right;
@@ -66,11 +66,19 @@ a article {
 	color: var(--fg);
 	text-decoration: none;
 }
-em {
-	font-family: Luminari;
-	font-size: 1.1em;
-}
 
+/* about section */
+
+#about img {
+	width: min(70%, 70vw);
+	border-radius: 5%;
+	margin-left: 1rem;
+}
+@media (min-width: 500px) {
+	#about img {
+		width: 300px
+	}
+}
 
 /* projects */
 #projects > a { 
@@ -78,15 +86,13 @@ em {
 }
 
 article {
-	/*width: 40%;
-	min-width: 22em;*/
-	max-width: 30em;
+	max-width: 30rem;
 	border: solid 2px var(--tint2);
-	border-radius: 1em;
-	padding: min(2em, 10%);
+	border-radius: 1rem;
+	padding: min(2rem, 10%);
 	transition: transform 0.3s cubic-bezier(.48,-0.25,.45,1.37), background-color 0.3s;
 	background: var(--bg);
-	margin: 0 auto 2em auto;
+	margin: 0 auto 2rem auto;
 }
 article:hover {
 	background-color: var(--bg);
@@ -96,7 +102,7 @@ article img {
 	width: 100%;
 	max-width: 50vh;
 	margin-left: max(50% - 25vh, 0%);
-	border-radius: 1em;
+	border-radius: 1rem;
 	border: solid 2px grey;
 }
 
@@ -105,68 +111,96 @@ article img {
 		columns: 2;
 	}
 	article img {
-		width: 10em;
+		width: 10rem;
 	}
 }
 
-#about img {
-	width: min(70%, 70vw);
-	border-radius: 5%;
-	margin-left: 1em;
+article.onscreen {
+	animation: swoosh 0.3s;
 }
-@media (min-width: 500px) {
-	#about img {
-		width: 300px
-	}
+@keyframes swoosh {
+	from { transform: translateY(400px) }
+	to { transform: translate(0) }
 }
 
-/* skytower */
+/* desktop layout */
 @media (min-width: 1000px) {
+	header, #about {
+		font-size: 1.4em;
+	}
+	#about img {
+		width: 340px;
+	}
+	/* skytower */
 	body {
 		background-image: url(skytower.png);
-		background-position: center 8em;
+		background-position: center 8rem;
 		background-repeat: no-repeat;
 		background-size: auto 800px;
+		--half-body-width: min(50vw - 1rem - var(--scrollbar-width) / 2, 650px);
 	}
-	#projects {
+	
+	body > section:nth-of-type(1) {
+		min-height: 640px;
+	}
+	body > section:nth-of-type(2) {
 		background-image: url(skytowerpole.png);
 		background-position: top;
 		background-repeat: repeat-y;
 		background-size: auto 800px;
-	}
-	#about {
-		text-shadow: 1px 0 0 var(--bg), 0 1px 0 var(--bg), -1px 0 0 var(--bg), 0 -1px 0 var(--bg), 0 0 2px var(--bg); /* for small layouts, make it so u can see the black on grey */	
-		min-height: 620px;
+		--half-skytower-pole-width: 47px;
 	}
 	#about img {
 		float: right;
 		margin-left: 30%;
 	}
 	
-	#projects {
-	}
+	/* projects on alternating sides */
 	article {
 		width: 35vw;
-	}
-	
-	article:nth-child(2n+1) {
-		margin-left: 0;
+		--article-width: min(35vw, 30rem) + 2 * min(2rem, 10%) + 2 * 2px; /* width + padding + border */
 	}
 	article:nth-child(2n) {
+		margin-left: 0;
+	}
+	article:nth-child(2n+1) {
 		margin-right: 0;
 	}
 	
-	/*
-	article {
-		transition: transform 2s, clip-path 2s;
+	/* projects slide in */
+	article { 	
+		--offset: calc( var(--half-body-width) - var(--half-skytower-pole-width) );
+		--negative-offset: calc( var(--half-skytower-pole-width) - var(--half-body-width) );
+		--negative-offset-plus-width: calc( var(--half-skytower-pole-width) - var(--half-body-width) + var(--article-width));
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(.19,1,.22,1);
 	}
-	article:nth-child(2n+1) {
-		transform: translateX(610px);
-		clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%);
+	article.onscreen:nth-child(2n) {
+		animation-name: slide-left;
+	}
+	article.onscreen:nth-child(2n+1) {
+		animation-name: slide-right;
 	}
 	
-	article.onscreen {
-		transform: translateX(0px);
-		clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
-	}*/
+	@keyframes slide-left {
+		from {
+			transform: translateX(var(--offset));
+			clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%);
+		}
+		to {
+			transform: translateX(0px);
+			clip-path: polygon(0% 0%, 0% 100%, var(--offset) 100%, var(--offset) 0%);
+		}
+	}
+	
+	@keyframes slide-right {	
+		from {
+			transform: translateX(var(--negative-offset));
+			clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%);
+		}
+		to {
+			transform: translateX(0px); 	
+			clip-path: polygon(var(--negative-offset-plus-width) 0%, var(--negative-offset-plus-width) 100%, 100% 100%, 100% 0%);
+		}
+	}
 }	

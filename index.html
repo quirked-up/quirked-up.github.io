@@ -28,7 +28,7 @@
 		</p>
 		
 		<p>
-		I'm passionate about programming; I've been doing it since I was 11, and it has informed much of who I am.
+		I'm passionate about programming; I've been doing it since I was 10, and it has informed much of who I am.
 		<br>I love making things come to life and crafting interactive experiences through code.
 		</p>
 		
@@ -50,8 +50,9 @@
 	<img class=tower src=skytower.png>
 	-->
 	
-	<h2>Projects</h2>
 	<section id=projects>
+		<h2>Projects</h2>
+
 		<article>
 			<img src=lipo_preview.png>
 		
@@ -174,18 +175,38 @@
 			<hr>
 			<i>Skills I learnt</i>
 		</article>
+		
+		<article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article>
+		<article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article><article><img src=image.png><h3>title</h3><hr><p>Longer explanation</p><hr><i>Skills I learnt</i></article>
 	</section>
 	
 	<section id=more>
 	</section>
 	
 	<script>
-	window.addEventListener('scroll', ()=>{
-	  for (article of document.getElementsByTagName("article")) {
-		if (article.getBoundingClientRect().top < window.innerHeight)
-		  article.classList.add("onscreen")
-	  }
-	})
+	function slideInArticles() {
+		const hiddenArticles = document.querySelectorAll("article:not(.onscreen)")
+		
+		for (const article of hiddenArticles) {
+			if (article.getBoundingClientRect().top < window.innerHeight)
+				article.classList.add('onscreen')
+		}
+		
+		if (hiddenArticles.length == 0) {
+			window.removeEventListener('scroll', slideInArticles);
+			window.removeEventListener('resize', slideInArticles);
+		}
+	}
+	window.addEventListener('scroll', slideInArticles)
+	window.addEventListener('resize', slideInArticles)
+	slideInArticles()
+	
+	const root = document.body.parentElement
+	function calculateScrollbarWidth() {
+		root.setAttribute("style", `--scrollbar-width: ${window.innerWidth - root.clientWidth}px`)
+	}
+	window.addEventListener('resize', calculateScrollbarWidth)
+	calculateScrollbarWidth()
 	</script>
   </body>
 </html>
