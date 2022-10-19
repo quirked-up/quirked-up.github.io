@@ -115,12 +115,14 @@ article img {
 	}
 }
 
-article.onscreen {
-	animation: swoosh 0.3s;
-}
-@keyframes swoosh {
-	from { transform: translateY(400px) }
-	to { transform: translate(0) }
+@media (max-width: 999px) {
+	article.onscreen {
+		animation: swoosh 0.3s;
+	}
+	@keyframes swoosh {
+		from { transform: translateY(400px) }
+		to { transform: translate(0) }
+	}
 }
 
 /* desktop layout */
