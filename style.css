@@ -17,12 +17,12 @@
 	--highlight: #afa;
 }
 
-@font-face { font-family: "Inter"; src: url("https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Lato"; src: url("fonts/Lato-Regular.ttf"); }
+@font-face { font-family: "Inter"; src: url("fonts/Inter.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 html {
 	background-color: var(--bg);
 	color: var(--fg);
-	font-family: "normcore", sans-serif;
 	padding: 1rem;
 	font-family: "Inter", sans-serif;
 	letter-spacing: -0.045rem;
@@ -36,7 +36,7 @@ body {
 /* headers */
 h1, h2, h3 { 
 	color: var(--tint);
-	font-family: Lato;
+	font-family: "Lato";
 	letter-spacing: 0;
 }
 h1, h2 {
