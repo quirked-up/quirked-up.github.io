@@ -104,12 +104,12 @@ article img {
 	border: solid 2px grey;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 500px) {
 	article { 
 		columns: 2;
 	}
 	article img {
-		width: 10rem;
+		width: 12rem;
 	}
 }
 
@@ -124,7 +124,7 @@ article img {
 }
 
 /* desktop layout */
-@media (min-width: 1000px) {
+@media (min-width: 1040px) {
 	header, #about {
 		font-size: 1.4em;
 	}
@@ -160,6 +160,7 @@ article img {
 		width: 35vw;
 		--article-width: min(35vw, 30rem) + 2 * min(2rem, 10%) + 2 * 2px; /* width + padding + border */
 	}
+	
 	article:nth-child(2n) {
 		margin-left: 0;
 	}
