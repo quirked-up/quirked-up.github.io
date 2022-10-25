@@ -27,7 +27,6 @@ html {
 	font-family: "Inter", sans-serif;
 	letter-spacing: -0.045rem;
 	--scrollbar-width: 17px;
-	/* background-image: url("./notebook.png"); */
 }
 body {
 	max-width: 1300px;
@@ -44,7 +43,6 @@ h1, h2 {
 	text-decoration: underline;
 	padding-left: 2rem;
 	font-weight: normal;
-	/*font-style: italic;*/
 }
 header h2 { text-decoration: none; }
 h3 { 
@@ -135,7 +133,7 @@ article img {
 	}
 	/* skytower */
 	body {
-		background-image: url(skytower.png);
+		background-image: url(images/skytower.png);
 		background-position: center 8rem;
 		background-repeat: no-repeat;
 		background-size: auto 800px;
@@ -146,7 +144,7 @@ article img {
 		min-height: 640px;
 	}
 	body > section:nth-of-type(2) {
-		background-image: url(skytowerpole.png);
+		background-image: url(images/skytowerpole.png);
 		background-position: top;
 		background-repeat: repeat-y;
 		background-size: auto 800px;
